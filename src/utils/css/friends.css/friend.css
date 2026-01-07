@@ -1,0 +1,146 @@
+/* Friends Container */
+.friends-container {
+  display: flex;
+  gap: 16px;
+  padding: 12px 4px;
+  overflow-x: auto;
+  background: transparent;
+}
+
+.friends-container::-webkit-scrollbar {
+  height: 6px;
+}
+
+.friends-container::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.2);
+  border-radius: 999px;
+}
+
+/* Friend Item */
+.friend-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  min-width: 72px;
+  user-select: none;
+  transition: transform 0.2s ease;
+}
+
+.friend-item:hover {
+  transform: scale(1.05);
+}
+
+/* Friend Avatar */
+.friend-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;  
+  background: #2c2f33;
+  /* ... */
+}
+
+.friend-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;  /* ← Also on the image */
+}
+
+/* Online Status Indicator */
+.friend-item.online .friend-avatar::after {
+  content: "";
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  width: 14px;
+  height: 14px;
+  background: #4ade80;
+  border: 3px solid #1a1a1a;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px #2c2f33;
+}
+
+/* Friend Name */
+.friend-name {
+  margin-top: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.9);
+  text-align: center;
+  max-width: 72px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Add Friend Button */
+.friend-item.add-friend .friend-avatar {
+  background: #2c2f33;
+  border: 2px dashed rgba(255,255,255,0.3);
+}
+
+.friend-item.add-friend svg {
+  width: 24px;
+  height: 24px;
+  color: rgba(255,255,255,0.7);
+  stroke-width: 2.5;
+  pointer-events: none;
+}
+
+.friend-item.add-friend .friend-name {
+  color: rgba(255,255,255,0.7);
+}
+
+.friend-item.add-friend:hover .friend-avatar {
+  background: #36393f;
+  border-color: rgba(255,255,255,0.5);
+}
+
+.friend-item.add-friend:hover svg {
+  color: #ffffff;
+}
+
+.friend-item.add-friend:hover .friend-name {
+  color: #ffffff;
+}
+
+/* Light Theme Support */
+@media (prefers-color-scheme: light) {
+  .friend-avatar {
+    background: #f0f0f0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  .friend-item.online .friend-avatar::after {
+    border-color: #ffffff;
+    box-shadow: 0 0 0 2px #f0f0f0;
+  }
+
+  .friend-name {
+    color: rgba(0,0,0,0.8);
+  }
+
+  .friend-item.add-friend .friend-avatar {
+    background: #f8f8f8;
+    border-color: rgba(0,0,0,0.2);
+  }
+
+  .friend-item.add-friend svg {
+    color: rgba(0,0,0,0.6);
+  }
+
+  .friend-item.add-friend .friend-name {
+    color: rgba(0,0,0,0.6);
+  }
+
+  .friend-item.add-friend:hover .friend-avatar {
+    background: #ececec;
+    border-color: rgba(0,0,0,0.3);
+  }
+
+  .friend-item.add-friend:hover svg,
+  .friend-item.add-friend:hover .friend-name {
+    color: rgba(0,0,0,0.9);
+  }
+}

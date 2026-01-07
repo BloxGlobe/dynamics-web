@@ -1,0 +1,10 @@
+{
+  "code": "404",
+  "title": "Page not found",
+  "subtitle": "The page you're looking for doesn't exist or was moved.",
+  "description": "",
+  "button": {
+    "label": "Go Home",
+    "href": "#home"
+  }
+}
